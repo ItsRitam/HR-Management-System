@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --font-lobster: "Lobster Two", cursive;
+  --font-playwrite: "Playwrite VN", cursive;
+}
