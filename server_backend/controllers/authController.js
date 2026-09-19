@@ -33,4 +33,9 @@ const login = async (req, res) => {
   }
 };
 
-export { login };
+const verify = (req,res)=>{
+  res.status(200).json({success:true, user:req.user})
+}
+
+
+export { login, verify };

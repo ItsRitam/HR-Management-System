@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/Authcontext.jsx";
+import userContext from "../context/Authcontext.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +20,13 @@ const Login = () => {
         { email, password },
       );
       if (response.data.status) {
-        alert("Successfully logged in");
+        login(response.data.user);
+        localStorage.setItem("token", response.data.token);
+        if (response.data.user.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/employee-dashboard");
+        }
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {
