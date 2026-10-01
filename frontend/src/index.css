@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two&family=Manrope:wght@200..800&family=Pacifico&family=Playwrite+VN:wght@100..400&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --font-manrope: "Manrope", sans-serif;
   --font-lobster: "Lobster Two", cursive;
   --font-playwrite: "Playwrite VN", cursive;
+  --font-pacific: "Pacifico", cursive;
 }
